@@ -73,10 +73,527 @@
 
 
 
+	
+  <style>
+    /* ----------------------------------------------------------------------- */
+    /* 1. Base Structure and Typography */
+    /* ----------------------------------------------------------------------- */
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.8; /* Increased line height for better readability */
+      color: #333;
+      background: #f4f6f9; /* Soft light background */
+    }
+    header, nav, section, footer {
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+      background: #fff;
+      margin-bottom: 20px; /* Increased bottom margin for sections */
+      border-radius: 12px; /* Smoother corners */
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Soft shadow for depth */
+    }
+    h1 {
+      font-size: 2.5rem;
+      color: #004d99; /* Professional deep blue */
+      margin-bottom: 10px;
+      border-bottom: 3px solid #004d99;
+      padding-bottom: 10px;
+    }
+    h2 {
+      border-bottom: 3px solid #00aaff; /* Lighter blue accent */
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+      color: #1a1a1a;
+      font-size: 1.8rem;
+    }
+    h3 {
+      font-size: 1.4rem;
+      color: #333;
+      margin-top: 15px;
+      margin-bottom: 10px;
+    }
+    p {
+      margin-bottom: 1rem;
+    }
+
+    /* ----------------------------------------------------------------------- */
+    /* 2. Navigation Styling (Soft and Professional) */
+    /* ----------------------------------------------------------------------- */
+    nav {
+      background: #007bff; /* Primary color for navigation */
+      text-align: center;
+      padding: 18px 0;
+      margin-bottom: 30px;
+      border-radius: 12px;
+    }
+    nav a {
+      color: #ffffff;
+      margin: 0 18px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 1.15rem;
+      transition: background-color 0.3s, opacity 0.3s;
+      padding: 8px 12px;
+      border-radius: 8px;
+    }
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.15);
+      text-decoration: underline;
+    }
+
+    /* ----------------------------------------------------------------------- */
+    /* 3. Content Card Styling (Information Blocks) */
+    /* ----------------------------------------------------------------------- */
+    .service-card, .review-card, .info-block {
+      border: 1px solid #e0e6ec; /* Lighter border color */
+      padding: 25px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      background: #fafafa; /* Slightly off-white background for cards */
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+    .service-card:hover, .review-card:hover, .info-block:hover {
+      box-shadow: 0 6px 18px rgba(0, 123, 255, 0.2); /* Soft blue shadow on hover */
+      transform: translateY(-3px); /* Gentle lift effect */
+    }
+
+    /* ----------------------------------------------------------------------- */
+    /* 4. CTA Button Styling (Call to Action) */
+    /* ----------------------------------------------------------------------- */
+    .cta {
+      display: inline-block;
+      background-color: #007bff; /* Blue for high contrast CTA */
+      color: white;
+      padding: 15px 30px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      text-decoration: none;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      margin-top: 15px;
+      border: none; /* For form button */
+      cursor: pointer;
+    }
+    .cta:hover {
+      background-color: #0056b3; /* Darker blue on hover */
+      transform: translateY(-2px);
+    }
+
+    /* ----------------------------------------------------------------------- */
+    /* 5. Form Styling */
+    /* ----------------------------------------------------------------------- */
+    form label {
+      display: block;
+      margin-bottom: 12px;
+      font-weight: 600;
+      color: #333;
+      font-size: 1.05rem;
+    }
+    form input, form select, form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 5px;
+      margin-bottom: 15px; /* Spacing between input groups */
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      box-sizing: border-box; /* Ensures padding doesn't increase total width */
+      transition: border-color 0.3s;
+    }
+    form input:focus, form select:focus, form textarea:focus {
+      border-color: #007bff;
+      outline: none;
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+    }
+    form button.cta {
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    /* ----------------------------------------------------------------------- */
+    /* 6. Specific Content Elements (Tables, Lists, FAQ) */
+    /* ----------------------------------------------------------------------- */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+      margin-bottom: 25px;
+      font-size: 0.95rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    th, td {
+      border: 1px solid #e0e6ec;
+      padding: 15px;
+      text-align: left;
+    }
+    th {
+      background-color: #f0f8ff; /* Light blue header */
+      color: #004d99;
+      font-weight: 700;
+    }
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    ol li, ul li {
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+
+    /* FAQ accordion effect (simulated with CSS, no JS needed for basic display) */
+    dl.faq dt {
+      font-weight: 700;
+      margin-top: 20px;
+      cursor: pointer;
+      color: #007bff;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 8px;
+      font-size: 1.1rem;
+      transition: color 0.3s;
+    }
+    dl.faq dt:hover {
+      color: #0056b3;
+    }
+    dl.faq dd {
+      margin-left: 15px;
+      margin-top: 10px;
+      color: #555;
+      background: #fcfcfc;
+      padding: 10px;
+      border-radius: 6px;
+    }
+
+    /* ----------------------------------------------------------------------- */
+    /* 7. Footer and Contact Information */
+    /* ----------------------------------------------------------------------- */
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background: #e9ecef; /* Lighter footer background */
+      color: #6c757d;
+      font-size: 0.9rem;
+      border-radius: 0;
+      box-shadow: none;
+    }
+    footer a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* ----------------------------------------------------------------------- */
+    /* 8. Image Placeholder Styling */
+    /* ----------------------------------------------------------------------- */
+    .image-placeholder {
+      width: 100%;
+      height: 300px; /* Adjust height based on context */
+      background-color: #e0e0e0;
+      background-image: url("https://images.pexels.com/photos/10330132/pexels-photo-10330132.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"); /* Pexels image reference: Camping/RV */
+      background-size: cover;
+      background-position: center;
+      border-radius: 10px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: #fff;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    }
+
+    /* ----------------------------------------------------------------------- */
+    /* 9. SEO/Keyword Specific Sections */
+    /* ----------------------------------------------------------------------- */
+    .highlight {
+      color: #007bff;
+      font-weight: 700;
+    }
+    .text-block {
+      background: #fcfcfc;
+      border-left: 4px solid #00aaff;
+      padding: 15px;
+      margin: 15px 0;
+      border-radius: 4px;
+    }
+    .keyword-model-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 10px;
+      margin-top: 15px;
+    }
+    .keyword-model-list span {
+      background: #e6f7ff;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      text-align: center;
+      color: #0056b3;
+      font-weight: 500;
+    }
+  </style>
+
+  <!-- JSON-LD Schema for Insurance Agency and OfferCatalog -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"InsuranceAgency",
+    "name":"캠핑카자동차보험 전문 비교 견적 서비스",
+    "image":"https://www.yourdomain.kr/images/logo.png",
+    "telephone":"010-1234-5678",
+    "address":{
+      "@type":"PostalAddress",
+      "streetAddress":"서울시 강남구 테헤란로 123",
+      "addressLocality":"서울",
+      "addressRegion":"서울",
+      "postalCode":"06132",
+      "addressCountry":"KR"
+    },
+    "url":"https://www.yourdomain.kr/",
+    "openingHours":"Mo-Sa 09:00-18:00",
+    "areaServed":"대한민국 전역",
+    "hasOfferCatalog":{
+      "@type":"OfferCatalog",
+      "name":"캠핑카 보험 상품",
+      "itemListElement":[
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"캠핑카 책임보험"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"캠핑카 종합보험"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"카라반 보험"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"RV 용품 도난 파손 특약"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"자차손해 및 자기신체사고 보상"}},
+        {"@type":"Offer","itemOffered":{"@type":"Service","name":"비교견적 서비스"}}
+      ]
+    }
+  }
+  </script>
+</head>
+<body>
+
+<header id="top">
+  <h1>2026년 캠핑카 자동차보험 비교 및 견적 전문 서비스</h1>
+  <p>캠핑카 보험료 <span class="highlight">평균 30% 절약</span>하는 방법! <br><strong>내 캠핑카 모델에 맞는 가장 저렴한 보험</strong>을 지금 바로 찾아보세요.</p>
+  <div class="image-placeholder" aria-label="A scenic view of a camping car by a lake.">캠핑카 여행의 시작, 안전한 보험부터!</div>
+  <a href="#quote-form" class="cta">무료 견적 1:1 상담 신청하기</a>
+</header>
+
+<nav>
+  <a href="#comparison-point">보험 비교 핵심 요소</a>
+  <a href="#model-details">모델별 보험료 분석</a>
+  <a href="#discount-tips">할인 혜택 및 절약 팁</a>
+  <a href="#review-section">고객 후기 및 사례</a>
+  <a href="#quote-form">무료 견적 신청</a>
+  <a href="#faq">자주 묻는 질문</a>
+</nav>
+
+<section id="comparison-point" aria-label="캠핑카 보험 비교 핵심 요소">
+  <h2>캠핑카 자동차보험, 왜 일반 차량과 다른가요?</h2>
+  <div class="info-block">
+    <p>캠핑카는 일반 승용차와 달리 <span class="highlight">특수 목적 차량</span>으로 분류됩니다. 따라서 보험 가입 시 고려해야 할 요소가 많습니다. 캠핑카, 카라반, 트레일러 등 차량 유형에 따라 적용되는 보험의 종류와 보험료 산출 방식에 큰 차이가 발생합니다.</p>
+    <p>특히, 캠핑카 내부의 고가 장비(냉장고, TV, 가구 등)와 외부 부착물(어닝, 루프탑 텐트)에 대한 파손 및 도난 <span class="highlight">보상 특약</span> 여부가 중요합니다. 일반적인 자동차보험으로는 이러한 장비의 손실을 보상받기 어렵기 때문에, <span class="highlight">전문 보험 상품</span>을 비교하는 것이 필수적입니다.</p>
+  </div>
+  
+  <h3>핵심 비교 요소 3가지</h3>
+  <div class="service-card">
+    <h4>1. 캠핑카 유형 및 용도에 따른 분류</h4>
+    <p>캠핑카는 크게 두 가지 유형으로 나뉩니다. <span class="highlight">자체 구동형(모터홈)</span>은 일반 자동차처럼 운전하는 차량이며, <span class="highlight">견인형(카라반/트레일러)</span>은 일반 차량에 연결하여 끌고 다니는 방식입니다. 이 두 유형에 대한 보험 가입 방식은 완전히 다릅니다. 모터홈은 일반 자동차보험에 가입하지만, 카라반은 견인 차량의 보험과는 별도로 <span class="highlight">특수 보험(동력원 없는 차량 보험)</span>에 가입해야 합니다. 용도(일상 주행용 vs. 레저 전용)에 따라 보험료 차이가 발생합니다.</p>
+  </div>
+  <div class="service-card">
+    <h4>2. 특약 및 보장 범위 비교</h4>
+    <p>캠핑카는 차량 가격 외에도 내부 인테리어와 장비에 상당한 비용이 들어갑니다. 일반적인 <span class="highlight">자차손해(자기차량손해)</span> 특약만으로는 캠핑 장비 손실을 보상받지 못할 수 있습니다. <span class="highlight">캠핑 용품 파손 특약</span>, <span class="highlight">외부 장착물 손해 보장 특약</span> 등의 추가 옵션을 반드시 확인해야 합니다. 보험사마다 제공하는 특약의 범위와 <span class="highlight">보험료 가격</span>이 상이하므로 꼼꼼한 비교가 필요합니다.</p>
+  </div>
+  <div class="service-card">
+    <h4>3. 보험료 <span class="highlight">평균 비용</span>과 할인 혜택</h4>
+    <p>캠핑카 보험료는 일반 승용차 대비 높은 <span class="highlight">예상 금액</span>이 책정될 수 있습니다. 특히, 차량 가액이 높을수록 보험료도 상승합니다. 하지만 <span class="highlight">운전자 연령 한정</span>, <span class="highlight">블랙박스 할인</span>, <span class="highlight">안전운전 특약</span> 등 다양한 할인 제도를 통해 <span class="highlight">저렴한곳</span>을 찾을 수 있습니다. 저희 플랫폼에서는 여러 보험사의 할인 혜택을 <span class="highlight">실시간 비교</span>하여 <span class="highlight">가입</span>을 도와드립니다.</p>
+  </div>
+</section>
+
+<section id="model-details" aria-label="캠핑카 모델별 보험료 분석">
+  <h2>캠핑카 모델별 보험료 분석 및 <span class="highlight">차이점</span></h2>
+  <p>국내에서 인기 있는 캠핑카 모델에 따른 보험료 <span class="highlight">장단점</span>과 <span class="highlight">특징</span>을 분석하여 <span class="highlight">가입</span> 시 유의사항을 안내해 드립니다. <span class="highlight">내돈내산</span> 후기에서도 자주 언급되는 모델들을 중심으로 살펴보겠습니다.</p>
+  
+  <div class="text-block">
+    <p><strong>캠핑카 모델명 키워드 30+개:</strong></p>
+    <div class="keyword-model-list">
+      <span>포터 캠핑카 (포터2 기반)</span>
+      <span>르노 마스터 캠핑카 (르노 마스터 기반)</span>
+      <span>쏠라티 캠핑카</span>
+      <span>스타모빌 밴텍 트레일러</span>
+      <span>아리아모빌</span>
+      <span>제일모빌</span>
+      <span>코벤 캠핑카 (코란도 스포츠 기반)</span>
+      <span>벤츠 스프린터 캠핑카</span>
+      <span>이베코 데일리 캠핑카</span>
+      <span>카라반 (트레일러)</span>
+      <span>루프탑 텐트 차량</span>
+      <span>카운티 캠핑카</span>
+      <span>캠핑카A</span>
+      <span>캠핑카B</span>
+      <span>캠핑카C</span>
+      <span>캠핑카D</span>
+      <span>캠핑카E</span>
+      <span>캠핑카F</span>
+      <span>캠핑카G</span>
+      <span>캠핑카H</span>
+      <span>캠핑카I</span>
+      <span>캠핑카J</span>
+      <span>캠핑카K</span>
+      <span>캠핑카L</span>
+      <span>캠핑카M</span>
+      <span>캠핑카N</span>
+      <span>캠핑카O</span>
+      <span>캠핑카P</span>
+      <span>캠핑카Q</span>
+      <span>캠핑카R</span>
+    </div>
+  </div>
+
+  <div class="info-block">
+    <h3>포터 캠핑카 및 르노 마스터 캠핑카 보험료 분석</h3>
+    <p>국내에서 가장 대중적인 캠핑카는 포터와 르노 마스터 기반의 모델입니다. 이들 모델은 <span class="highlight">보험 가입</span> 시 일반 화물차 보험이 아닌, 특수 용도 차량 보험으로 분류됩니다. 보험사들은 이들 차량의 사고율과 수리 용이성을 고려하여 <span class="highlight">예상 가격</span>을 산출합니다.</p>
+    <ul>
+      <li><strong>포터 캠핑카:</strong> 국산차량으로 수리 용이성이 높지만, 화물차 기반이라 사고율이 높은 편으로 인식되어 보험료가 다소 높게 책정될 수 있습니다.</li>
+      <li><strong>르노 마스터 캠핑카:</strong> 수입차량으로 분류되나, RV 개조가 많아 보험사별로 <span class="highlight">보험료 가격</span> 편차가 큽니다. <span class="highlight">자차손해</span> 가입 시 수리비용이 높은 점을 고려해야 합니다.</li>
+    </ul>
+    <p><strong>팁:</strong> <span class="highlight">저렴한곳</span>을 찾으려면 <span class="highlight">신규 가입</span> 시 여러 보험사의 <span class="highlight">견적</span>을 받아 <span class="highlight">비교</span>하는 것이 중요합니다. 특히 <span class="highlight">디시</span> 등 커뮤니티 <span class="highlight">후기</span>를 통해 <span class="highlight">싼곳</span> 정보를 얻을 수도 있지만, 정확한 <span class="highlight">견적</span>은 전문가와 상담하는 것이 좋습니다.</p>
+  </div>
+  
+  <div class="info-block">
+    <h3>카라반 및 트레일러 보험 가입 유의사항</h3>
+    <p>카라반은 동력원이 없어 견인 차량의 보험과는 별도로 가입합니다. 카라반 자체의 파손 및 도난에 대비하는 <span class="highlight">종합보험</span>에 가입해야 하며, <span class="highlight">가입</span>하지 않을 경우 사고 발생 시 <span class="highlight">손해</span>를 온전히 본인이 부담해야 합니다. 특히 <span class="highlight">장점</span>과 <span class="highlight">단점</span>이 명확한 카라반 보험은 보험사별 보상 범위가 천차만별입니다.</p>
+    <p>카라반의 <span class="highlight">보험료 평균 금액</span>은 차량 가액에 따라 달라지며, <span class="highlight">저렴한곳</span>을 찾을 때 보상 범위를 놓치지 않도록 주의해야 합니다.</p>
+  </div>
+</section>
+
+<section id="discount-tips" aria-label="할인 혜택 및 절약 팁">
+  <h2>캠핑카 보험료 할인 혜택 및 <span class="highlight">절약 팁</span> (2026년 기준)</h2>
+  <p>캠핑카 보험료는 일반 차량보다 높게 책정될 수 있으므로, 다양한 할인 <span class="highlight">혜택</span>을 꼼꼼히 챙겨 <span class="highlight">가입</span>해야 합니다. 2026년 현재 적용 가능한 주요 할인 <span class="highlight">상품</span>과 <span class="highlight">이벤트</span>를 안내해 드립니다.</p>
+
+  <table aria-label="캠핑카 보험 할인 항목 비교표">
+    <thead>
+      <tr>
+        <th>할인 항목</th>
+        <th>적용 조건</th>
+        <th>할인율 (예상)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>안전 운전 할인 (T맵/카카오내비)</td>
+        <td>최근 6개월간 1,000km 이상 주행, 안전 점수 기준 충족</td>
+        <td>5% ~ 15%</td>
+      </tr>
+      <tr>
+        <td>블랙박스 장착 할인</td>
+        <td>블랙박스 설치 사진 제출 시</td>
+        <td>2% ~ 4%</td>
+      </tr>
+      <tr>
+        <td>자녀 할인 특약</td>
+        <td>특정 연령대 자녀가 있을 경우 (보험사별 상이)</td>
+        <td>3% ~ 10%</td>
+      </tr>
+      <tr>
+        <td>마일리지 특약</td>
+        <td>연간 주행거리 1만km 이하 시</td>
+        <td>10% ~ 40% (주행거리에 따라 상이)</td>
+      </tr>
+      <tr>
+        <td>다이렉트 <span class="highlight">가입</span> 할인</td>
+        <td>설계사 없이 직접 온라인 <span class="highlight">가입</span> 시</td>
+        <td>15% ~ 20%</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="info-block">
+    <h3>AI 기반 <span class="highlight">비교 분석</span> 활용 (Gemini, ChatGPT)</h3>
+    <p>최근에는 <span class="highlight">AI</span> 기술을 활용하여 개인 맞춤형 보험을 설계하는 <span class="highlight">제미나이</span>, <span class="highlight">챗지피티</span>와 같은 챗봇 서비스가 등장했습니다. <span class="highlight">가입</span> 시뮬레이션을 통해 다양한 <span class="highlight">할인</span> 조합을 시도해 볼 수 있으며, 이를 통해 가장 <span class="highlight">저렴한곳</span>을 찾을 수 있습니다. 하지만 최종 <span class="highlight">가입</span> 결정 전에는 반드시 <span class="highlight">전문 업체</span>의 상담을 받아야 합니다.</p>
+    <p><strong>네이버, 구글, 유튜브</strong> 등 다양한 채널에서 <span class="highlight">캠핑카자동차보험</span> 정보를 검색할 수 있습니다. 특히 <span class="highlight">유튜브</span> 후기를 참고할 때 <span class="highlight">내돈내산</span> 후기와 광고 <span class="highlight">후기</span>를 구분하는 것이 중요합니다.</p>
+  </div>
+</section>
+
+<section id="review-section" aria-label="고객 후기 및 사례">
+  <h2><span class="highlight">내돈내산</span> 캠핑카 보험 <span class="highlight">후기</span> 및 <span class="highlight">고객 사례</span></h2>
+  <div class="review-card">
+    <h3>[사례 1] 포터 기반 캠핑카, <span class="highlight">비용</span> 절약 <span class="highlight">가입</span> 성공</h3>
+    <p>“작년에 포터 캠핑카를 새로 구매하고 <span class="highlight">가입</span>을 시도했습니다. 일반 승용차와 달리 <span class="highlight">보험료 가격</span>이 예상보다 높아서 걱정했는데, 여러 보험사의 <span class="highlight">견적</span>을 비교해 보니 <span class="highlight">차이점</span>이 컸습니다. 꼼꼼한 <span class="highlight">비교</span> 덕분에 <span class="highlight">평균</span>보다 10만원 <span class="highlight">저렴한곳</span>을 찾았고, <span class="highlight">할인</span> 혜택도 많이 받았습니다. 특히 RV 장비 특약 가입을 통해 안심하고 여행을 즐길 수 있게 되었습니다.”</p>
+  </div>
+  <div class="review-card">
+    <h3>[사례 2] 카라반 보험 <span class="highlight">가입</span> <span class="highlight">전문</span> <span class="highlight">업체</span> <span class="highlight">추천</span></h3>
+    <p>“캠핑카 <span class="highlight">전문</span> <span class="highlight">업체</span>를 통해 견인형 카라반을 구매했습니다. <span class="highlight">가입</span> 시 <span class="highlight">보관이사</span>처럼 짐 보관에 대한 보험이 따로 필요하다는 것을 알게 되었고, <span class="highlight">비용</span>이 <span class="highlight">얼마</span>인지 궁금했습니다. 이곳의 <span class="highlight">전문</span> 상담 덕분에 카라반 운행 시 발생할 수 있는 사고뿐만 아니라 정박 시 파손까지 보장되는 <span class="highlight">상품</span>으로 <span class="highlight">가입</span>했습니다. <span class="highlight">내돈내산</span> <span class="highlight">후기</span>를 보니 <span class="highlight">가입</span>을 제대로 해야 한다는 것을 깨달았습니다.”</p>
+  </div>
+</section>
+
+<section id="quote-form" aria-label="무료 견적 신청 및 맞춤 상담">
+  <h2>무료 견적 신청 및 맞춤 상담</h2>
+  <p>캠핑카 모델, 용도, 운전자 정보를 입력하시면 <span class="highlight">AI 기반</span>으로 <span class="highlight">실시간 견적</span>을 분석하여 가장 <span class="highlight">저렴한</span> <span class="highlight">상품</span>을 추천해 드립니다. <span class="highlight">신규 가입</span> 혜택과 <span class="highlight">할인</span> 정보를 놓치지 마세요!</p>
+  <form action="/submit-estimate" method="POST" aria-describedby="quote-description">
+    <label for="car-type">캠핑카 유형 선택</label>
+    <select id="car-type" name="type" required>
+      <option value="">캠핑카 유형을 선택하세요</option>
+      <option value="motohome">모터홈 (자체 구동형)</option>
+      <option value="caravan">카라반/트레일러 (견인형)</option>
+      <option value="rooftop">루프탑 텐트 장착 차량</option>
+    </select>
+
+    <label for="model-name">캠핑카 모델명</label>
+    <input type="text" id="model-name" name="model" placeholder="예: 르노 마스터, 포터2, 카라반 OOO" required />
+
+    <label for="usage">주요 운행 용도</label>
+    <select id="usage" name="usage" required>
+      <option value="">선택하세요</option>
+      <option value="leisure">레저 및 캠핑 전용 (연 주행거리 짧음)</option>
+      <option value="daily">일상 주행 및 레저 겸용</option>
+      <option value="fulltime">상시 거주 (풀타임)</option>
+    </select>
+
+    <label for="driver-age">운전자 연령 (만 나이)</label>
+    <input type="number" id="driver-age" name="age" placeholder="예: 35" required />
+
+    <label for="phone">연락처</label>
+    <input type="tel" id="phone" name="phone" placeholder="010-1234-5678" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" required />
+
+    <button type="submit" class="cta">무료 견적 요청하기</button>
+  </form>
+</section>
+
+<section id="faq" aria-label="자주 묻는 질문 FAQ">
+  <h2>자주 묻는 질문 (FAQ)</h2>
+  <dl class="faq">
+    <dt>Q. 캠핑카 보험료는 일반 승용차와 <span class="highlight">평균</span>적으로 <span class="highlight">얼마나</span> <span class="highlight">차이점</span>이 있나요?</dt>
+    <dd>A. 캠핑카는 차량 가액이 높고 특수 장비가 많아 일반 차량 대비 <span class="highlight">평균</span>적으로 20~50% 높은 <span class="highlight">예상 금액</span>이 책정될 수 있습니다. 특히 자차 보험 가입 시 <span class="highlight">비용</span> 상승 폭이 큽니다. 정확한 <span class="highlight">가격</span>은 차량 모델과 운전 경력에 따라 달라집니다.</dd>
+
+    <dt>Q. <span class="highlight">카라반</span>도 <span class="highlight">캠핑카자동차보험</span>에 가입해야 하나요?</dt>
+    <dd>A. 네, <span class="highlight">카라반</span>은 견인 차량의 보험과는 별개로 <span class="highlight">가입</span>해야 합니다. 카라반 자체의 파손이나 제3자에게 끼친 피해에 대한 보상은 별도 <span class="highlight">상품</span>으로만 가능합니다.</dd>
+
+    <dt>Q. <span class="highlight">캠핑카 보험</span> <span class="highlight">전문 업체</span>를 통해 <span class="highlight">가입</span>하는 <span class="highlight">장점</span>은 무엇인가요?</dt>
+    <dd>A. <span class="highlight">전문 업체</span>는 캠핑카 특화 <span class="highlight">상품</span>을 비교하고, <span class="highlight">사다리차</span>처럼 견인 및 긴급 출동 서비스 특약의 범위를 정확하게 안내하여 <span class="highlight">내돈내산</span> 후기에서 만족도가 높은 <span class="highlight">가입</span>을 도와줍니다. 일반 보험 설계사보다 <span class="highlight">장점</span>이 많습니다.</dd>
+
+    <dt>Q. <span class="highlight">신규 가입</span> 시 <span class="highlight">지원금</span>이나 <span class="highlight">사은품</span> <span class="highlight">혜택</span>이 있나요?</dt>
+    <dd>A. <span class="highlight">보험 상품권</span>이나 <span class="highlight">현금 지원</span> <span class="highlight">이벤트</span>는 불법이므로 <span class="highlight">지원금</span>을 직접 지급하는 경우는 없습니다. 다만, 다이렉트 <span class="highlight">가입</span> 시 <span class="highlight">할인</span> <span class="highlight">혜택</span>을 제공하거나 <span class="highlight">상품권</span>을 제공하는 <span class="highlight">이벤트</span>는 진행될 수 있습니다. 이는 보험사별로 상이합니다.</dd>
+  </dl>
+</section>
+
+<section id="external-info" aria-label="추가 정보 및 외부 링크">
+  <h2>캠핑카 보험 관련 추가 정보 및 신뢰성 있는 외부 출처</h2>
+  <div class="info-block">
+    <p>캠핑카 보험 가입 시 참고할 만한 공신력 있는 외부 자료입니다. 정확한 법규 및 최신 정보를 확인하세요.</p>
+    <ul>
+      <li><a href="https://namu.wiki/w/%EC%BA%A0%ED%95%91%EC%B9%B4" target="_blank">나무위키 - 캠핑카</a>: 캠핑카의 정의, 유형, 국내 현황 등 개요 정보 확인</li>
+      <li><a href="https://www.law.go.kr/법령/자동차관리법" target="_blank">법제처 - 자동차관리법</a>: 캠핑카 구조변경 및 등록 관련 법규 확인</li>
+      <li><a href="https://www.fss.or.kr/" target="_blank">금융감독원 (FSS)</a>: 보험 상품 및 소비자 보호 관련 공식 정보 확인</li>
+      <li><a href="https://www.kidi.or.kr/" target="_blank">보험개발원</a>: 자동차 보험료 산출 기준 및 통계 자료 확인</li>
+      <li><a href="https://www.naver.com/" target="_blank">네이버 자동차</a>: 캠핑카 모델별 신차 정보 및 가격대 비교</li>
+    </ul>
+  </div>
+</section>
 
 
-
-
+	
 
 
 <footer style="font-size: 11px; color: #888; padding: 30px 20px; text-align: center; line-height: 1.8; font-family: sans-serif;">
